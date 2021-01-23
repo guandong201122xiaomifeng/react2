@@ -12,12 +12,23 @@ import LikesBtn from './components/LikesBtn'
 import DigitalClock from './components/DigitalClock'
 import CommentBox from './components/CommentBox'
 import CommentBoxFei from './components/CommentBoxFei'
-
+import CompUseState from './hook/UseState'
+import {HashRouter as Router, Route} from 'react-router-dom'
+import Normal from './hook/Normal'
+import UseReducer from './hook/UseReducer'
+import CompUseRef from './hook/UseRef'
 
 console.log('React', React)
 console.log('ReactDOM', ReactDOM)
 ReactDOM.render(
   <React.StrictMode>
+    <Router>
+      <Route path='/' exact render={() => <Normal/>}/>
+      <Route path='/app' exact render={() => <App/>}/>
+      <Route path='/UseRef' exact render={() => <CompUseRef/>}/>
+      <Route path='/UseReducer' exact render={() => <UseReducer/>}/>
+      <Route path='/useState' exact render={() => <CompUseState id='CompUseState'/>}/>
+    </Router>
     <AppContext />
     {/* <App /> */}
     {/* <Welcome /> */}
